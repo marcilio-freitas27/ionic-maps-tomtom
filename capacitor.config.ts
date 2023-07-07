@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'ionic-maps-tomtom',
+  appId: 'ionic.maps.tomtom.mobile2',
+  appName: 'ionic-maps-tomtom2',
   webDir: 'www',
   server: {
     androidScheme: 'https'

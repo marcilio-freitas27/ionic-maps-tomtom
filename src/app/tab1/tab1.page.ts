@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import tt from '@tomtom-international/web-sdk-maps';
+
 
 @Component({
   selector: 'app-tab1',
@@ -10,14 +11,17 @@ import tt from '@tomtom-international/web-sdk-maps';
   standalone: true,
   imports: [IonicModule, ExploreContainerComponent],
 })
-export class Tab1Page {
+export class Tab1Page implements AfterViewInit{
   map!: any;
-  constructor() {
+  constructor() {}
+
+  ngAfterViewInit(): void {
     this.map = tt.map({
       key: 'qWs3zqjNxKQGEexONPwFAxRE5knGm6K7',
       container: 'map',
       center: new tt.LngLat(-35, -5),
-      zoom: 12,
+      zoom: 2,
     });
   }
+
 }

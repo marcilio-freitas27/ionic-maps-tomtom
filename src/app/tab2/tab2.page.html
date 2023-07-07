@@ -6,12 +6,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div #map id="map"></div>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Tom tom maps search</h3>
+    </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-item>
+      <ion-input #input label="Pesquisa" labelPlacement="stacked" placeholder="Digite aqui"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="search(input.value)">Buscar</ion-button>
+    </ion-item>
+
+  </ion-list>
+  <ion-list *ngFor="let item of result">
+    <ion-item (click)="locateResult(item)">
+      <ion-card>
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-card-header>
+          <ion-card-subtitle>Acesse: {{item.poi!.url}}</ion-card-subtitle>
+          <ion-card-title>{{item.poi!.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Endereço: {{item.address!.streetName}}, {{item.address!.municipality}},
+          {{item.address!.municipalitySubdivision}},
+          {{item.address!.countrySubdivision}}
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
